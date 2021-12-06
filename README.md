@@ -1,10 +1,10 @@
 # Telegraph Bot
 
-## You can upload photos and videos to telegraph using this bot. Can be found in telegram as [@YouTech_Telegraph_bot](http://t.me/YouTech_Telegraph_bot)
+## You can upload photos and videos to telegraph using this bot.
 
 ### Deploy to Heroku 🏃‍♂
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sbatrow/TelegraphBot)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DinuthInduwara/OC.Telegraph-Uploding-Telegram-Bot)
 
 ## Variables
 
@@ -17,9 +17,9 @@ add Variables to config.py
 
 ```
 
-git clone https://github.com/sbatrow/TelegraphBot
-cd TelegraphBot
+git clone https://github.com/DinuthInduwara/OC.Telegraph-Uploding-Telegram-Bot
+OC.Telegraph-Uploding-Telegram-Bot
 pip3 install -r requirements.txt
-python3 bot.py
+python3 main.py
 
 ```
