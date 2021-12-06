@@ -1,0 +1,38 @@
+{    
+
+"name": "Telegraph Bot",
+    "description": "A bot that can upload photos, video, Video Note and Gifs or Animation to telegraph.",
+    "logo": "https://telegra.ph/images/logo.png",
+    "keywords": [
+        "Telegraph",
+        "Uploader",
+        "Telegram Bot"
+    ],
+
+    "env": {
+        "TG_BOT_TOKEN": {
+            "description": "Your Telegram Bot Token from @BotFather",
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "Your API Hash from my.telegram.org",
+            "value": ""
+        },
+        "APP_ID": {
+            "description": "Your APP ID from my.telegram.org",
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
