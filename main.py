@@ -4,7 +4,8 @@ from pyrogram import Client, filters
 from telegraph import *
 from config import Config
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-
+from PIL import Image
+import shutil
 
 
 ocdevs_telegraphbot = Client(
@@ -142,6 +143,48 @@ async def televideo(client, message):
     finally:
         os.remove(download_location)
 
+@ocdevs_telegraphbot.on_message(filters.sticker)
+async def getimage(client, message):
+#convert To JPG(JPEG)
+    """
+    im = Image.open('image.jpg').convert('RGB')
+    im.save('output.png', 'png')
+
+    """
+    dwn = await message.reply_text("Downloading to my server...", True)
+    await message.download()
+    im = Image.open('downloads/sticker.webp').convert('RGB')
+    im.save('downloads/output.jpg', 'jpeg')
+    parth = ('downloads/output.jpg')
+    await dwn.edit_text("Uploading as telegra.ph link...")
+    try:
+        url_path = upload_file(parth)[0]
+    except Exception as error:
+        await dwn.edit_text(f"Oops something went wrong\n{error}")
+    else:
+        await dwn.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{url_path}\n\n✍️OpenCode.Devs **',
+            disable_web_page_preview=False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Open Link", url=f"https://telegra.ph{url_path}"
+                    ),
+                    InlineKeyboardButton(
+                        text="Share Link",
+                        url=f"https://telegram.me/share/url?url=https://telegra.ph{url_path}",
+                    )
+                ]
+            ]
+        )
+    )
+    os.remove(parth)
+    shutil.rmtree('downloads')
+
+         
+         
+         
+         
 @ocdevs_telegraphbot.on_message(filters.video_note)
 async def televideonote(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
