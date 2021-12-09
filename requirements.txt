@@ -1,4 +1,0 @@
-telegraph
-Pillow
-Pyrogram
-TgCrypto
